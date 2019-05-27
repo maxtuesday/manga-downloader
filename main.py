@@ -184,6 +184,9 @@ def download_chapter(url, manga_chapter, chapter):
         clearPrevLine()
 
 
+# TODO: Separate Choice logic to separate functions (clean up main())
+# TODO: Add in functionality to see how many available chapters there are
+
 def main(argv):
     global global_image_links
     global global_image_counter
@@ -221,7 +224,10 @@ def main(argv):
     for i in range(3):
         clearPrevLine()
 
-    # Add in functionality to see how many available chapters there are
+
+    if not os.path.exists(manga):
+        os.mkdir(manga)
+    os.chdir(manga)
 
     ts = time()
 
