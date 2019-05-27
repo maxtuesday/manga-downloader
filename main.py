@@ -176,8 +176,13 @@ def download_chapter(url, manga_chapter, chapter):
     print("[Finished Downloading]")
 
     print("[Create PDF]")
-    create_pdf(manga_chapter, str(manga_chapter + ".pdf"))
-    print("[Finished Creating PDF]")
+    try:
+        create_pdf(manga_chapter, str(manga_chapter + ".pdf"))
+        print("[Finished Creating PDF]")
+        pass
+    except Exception as e:
+        print("Error creating pdf")
+        print(e)
     shutil.rmtree(manga_chapter)
 
     for i in range(10):
